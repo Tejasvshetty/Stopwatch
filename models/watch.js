@@ -36,4 +36,4 @@ const watchSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("Post", watchSchema);
+module.exports = mongoose.model("Watch", watchSchema);
