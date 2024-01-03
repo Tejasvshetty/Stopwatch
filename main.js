@@ -2,10 +2,10 @@ let startBtn = document.getElementById('start');
 let stopBtn = document.getElementById('stop'); 
 let resetBtn = document.getElementById('reset'); 
   
-let hour = 00; 
-let minute = 00; 
-let second = 00; 
-let count = 00; 
+let hour = 0; 
+let minute = 0; 
+let second = 0; 
+let count = 0; 
   
 startBtn.addEventListener('click', function () { 
     timer = true; 

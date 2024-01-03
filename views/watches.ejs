@@ -1,0 +1,69 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-6">
+          <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div>
+          <div class="mt-5">
+            <h2>Add a post</h2>
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="mb-3">
+                <label for="caption" class="form-label">Caption</label>
+                <textarea class="form-control" id="caption" name="caption"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+      </div>
+      <div class="col-6">
+        <ul class="row list-unstyled">
+        <% for(var i=0; i<watches.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/watch/<%= watches[i]._id%>">
+              <div class="container"> 
+                <h1>Stop Watch</h1> 
+                <div id="time"> 
+                    <span class="Task">Task</h1>
+                    <span class="digit" id="hr"> 
+                      <%= watches[i].hr%></span> 
+                    <span class="txt">Hr</span> 
+                    <span class="digit" id="min"> 
+                      <%= watches[i].min%></span> 
+                    <span class="txt">Min</span> 
+                    <span class="digit" id="sec"> 
+                      <%= watches[i].sec></span> 
+                    <span class="txt">Sec</span> 
+                    <span class="digit" id="count"> 
+                      <%= watches[i].count%></span> 
+                </div> 
+                <div id="buttons"> 
+                    <button class="btn" id="start"> 
+                        Start</button> 
+                    <button class="btn" id="stop"> 
+                        Stop</button> 
+                    <button class="btn" id="reset"> 
+                        Reset</button> 
+                </div> 
+            </div> 
+              <img class="img-fluid" src="<%= posts[i].image%>">
+            </a>
+          </li>
+        <% } %>
+        </ul>
+      </div>  
+    </div>
+  </div>
+  <script src="../main.js"></script> 
+</div>
+<%- include('partials/footer') -%>
