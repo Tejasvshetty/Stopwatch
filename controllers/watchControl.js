@@ -1,15 +1,15 @@
 const Watch = require("../models/watch.js");
 
 module.exports = {
-  getWatches: async (req, res) => {
-    try {
-      const watches = await Watch.find({ user: req.user.id });
-      res.render("watches.ejs", { watches: watches, user: req.user }); 
-    //Need to update the ejs for watches
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  // getWatches: async (req, res) => {
+  //   try {
+  //     const watches = await Watch.find({ user: req.user.id });
+  //     res.render("watches.ejs", { watches: watches, user: req.user }); 
+  //   //Need to update the ejs for watches
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
   getWatchFeed: async (req, res) => {
     try {
       const watches = await Watch.find().sort({ createdAt: "desc" }).lean();
@@ -18,14 +18,15 @@ module.exports = {
       console.log(err);
     }
   },
-  getWatch: async (req, res) => {
-    try {
-      const watch = await Watch.findById(req.params.id);
-      res.render("post.ejs", {watch: watch, user: req.user});
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  // getWatch: async (req, res) => {
+  //   try {
+  //     const watch = await Watch.findById(req.params.id);
+      // res.render("post.ejs", {watch: watch, user: req.user});
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
+
   createWatch: async (req, res) => {
     try {
       // Upload image to cloudinary
