@@ -181,6 +181,10 @@ span {
   }
 
   .txt {
-    font-size: 0.6rem; /* Adjusted font size for smaller screens */
+    font-size: 0.5rem; /* Adjusted font size for smaller screens */
+  }
+
+  .fa-trash {
+    margin-bottom: 0.65rem;
   }
 }
