@@ -104,6 +104,7 @@ for (let i = 0; i<ids.length; i++){
         else{
             Object.keys(timer).forEach(key => {
                 try{
+                    alert("We are here toto")
                     timer[key] = false; 
                     const response = fetch('/post/updateTime',{
                         method: 'put',
@@ -116,6 +117,7 @@ for (let i = 0; i<ids.length; i++){
                             countUpdate: count_track[key]
                         })
                     })
+                    alert("Not in kansas")
         
                 }
                 catch(err){
@@ -123,6 +125,7 @@ for (let i = 0; i<ids.length; i++){
                 }}),
                 await getStartTime(startBtn[i][0].parentNode.parentNode.id)
                 timer[startBtn[i][0].parentNode.parentNode.id] = true
+                alert("Definetely not")
                 newStopWatch()
               }
         }
