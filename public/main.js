@@ -1,11 +1,6 @@
 function getClocks() {
     let clocks = [];
     let clocks_prime = [];
-//    $(document.getElementsByClassName("clocks")).each(function () {
-//         if (this.id) {
-//             clocks.push(this.id);
-//         }
-//     });
    
     clocks_prime = document.getElementsByClassName("clocks")
     for (var i=0; i< clocks_prime.length; i++ ) {
@@ -13,11 +8,6 @@ function getClocks() {
     }
     return clocks;
 
-// }
-
-// var ele = document.getElementsByClassName('translation_box');
-// for (var i=0; i< ele.length; i++ ) {
-//   alert(ele[i].id);
 }
 
 
@@ -89,8 +79,7 @@ for (let i = 0; i<ids.length; i++){
 
     async function startTime(button){
         startButton = button.currentTarget.parentNode.parentNode.id 
-        // Need to definie within block scope for Ipad compatability
-        // alert("This works")
+        // Need to define within block scope for Ipad compatability
         if (oneTimerOn == false){
             if (timer[startButton]){
                 // do nothing, if start button already on
@@ -131,7 +120,6 @@ for (let i = 0; i<ids.length; i++){
 
     async function resetTime(button){
         resetButton = button.currentTarget.parentNode.parentNode.id 
-        // alert("This works")
         timer[resetButton] = false; 
         hour_track[resetButton] = "00"; 
         minute_track[resetButton] = "00"; 
@@ -158,7 +146,6 @@ for (let i = 0; i<ids.length; i++){
 
     async function updateTime(button){
         updateButton = button.currentTarget.parentNode.parentNode.id 
-        // alert("This works")
         try{
             timer[updateButton] = false; 
             const response = await fetch('/post/updateTime',{
@@ -179,17 +166,6 @@ for (let i = 0; i<ids.length; i++){
             
     }
 
-
-    async function test(event){
-        event.preventDefault();
-        try{
-        //    alert("This works")
-            }
-        
-        catch(err){
-            console.log(err)
-        }
-    }
 }
 
 
@@ -320,7 +296,6 @@ async function getStartTime(entry){
 const myWorker = new Worker('worker.js')
 
 function newStopWatch(){
-    // alert("We are here in stopwatch")
     var next = false;
     myWorker.postMessage({ids: ids, hour_track: hour_track, minute_track:minute_track, second_track: second_track, count_track: count_track, timer: timer, start: start})
     myWorker.onmessage = function(event){
