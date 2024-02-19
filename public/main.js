@@ -80,15 +80,14 @@ for (let i = 0; i<ids.length; i++){
 
 
 for (let i = 0; i<ids.length; i++){
-    stopBtn[i][0].addEventListener('click', updateTime);
-    startBtn[i][0].addEventListener('click', startTime);
-    resetBtn[i][0].addEventListener('click', resetTime); 
-    stopBtn[i][0].addEventListener('touchstart', updateTime);
-    startBtn[i][0].addEventListener('touchstart', startTime);
-    resetBtn[i][0].addEventListener('touchstart', resetTime); 
+    stopBtn[i][0].addEventListener('click', updateTime(i));
+    startBtn[i][0].addEventListener('click', startTime(i));
+    resetBtn[i][0].addEventListener('click', resetTime(i)); 
+    stopBtn[i][0].addEventListener('touchstart', updateTime(i));
+    startBtn[i][0].addEventListener('touchstart', startTime(i));
+    resetBtn[i][0].addEventListener('touchstart', resetTime(i)); 
 
-    async function startTime(event){
-        event.preventDefault();
+    async function startTime(i){
         // alert("This works")
         if (oneTimerOn == false){
             if (timer[startBtn[i][0].parentNode.parentNode.id]){
@@ -132,8 +131,7 @@ for (let i = 0; i<ids.length; i++){
               }
         }
 
-    async function resetTime(event){
-        event.preventDefault();
+    async function resetTime(i){
         // alert("This works")
         timer[ids[i]] = false; 
         hour_track[ids[i]] = "00"; 
@@ -159,8 +157,7 @@ for (let i = 0; i<ids.length; i++){
         })
     }
 
-    async function updateTime(event){
-        event.preventDefault();
+    async function updateTime(i){
         // alert("This works")
         try{
             timer[stopBtn[i][0].parentNode.parentNode.id] = false; 
