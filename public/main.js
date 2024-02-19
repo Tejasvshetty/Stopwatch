@@ -124,7 +124,7 @@ for (let i = 0; i<ids.length; i++){
                     console.log(err)
                     alert("Orca")
                 }}),
-                alert("Trial Run")
+                alert(startBtn)
                 await getStartTime(startBtn[i][0].parentNode.parentNode.id)
                 timer[startBtn[i][0].parentNode.parentNode.id] = true
                 alert("Definetely not")
