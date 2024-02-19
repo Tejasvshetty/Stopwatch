@@ -134,6 +134,7 @@ span {
 .btn.stop,
 .btn.reset {
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .fa-trash {
