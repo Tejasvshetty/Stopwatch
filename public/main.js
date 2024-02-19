@@ -88,7 +88,8 @@ for (let i = 0; i<ids.length; i++){
     resetBtn[i][0].addEventListener('touchstart', resetTime); 
 
     async function startTime(button){
-        startButton = button.currentTarget.parentNode.parentNode.id
+        startButton = button.currentTarget.parentNode.parentNode.id 
+        // Need to definie within block scope for Ipad compatability
         // alert("This works")
         if (oneTimerOn == false){
             if (timer[startButton]){
@@ -104,7 +105,6 @@ for (let i = 0; i<ids.length; i++){
         else{
             Object.keys(timer).forEach(key => {
                 try{
-                    alert("We are here toto")
                     timer[key] = false; 
                     const response = fetch('/post/updateTime',{
                         method: 'put',
@@ -117,62 +117,59 @@ for (let i = 0; i<ids.length; i++){
                             countUpdate: count_track[key]
                         })
                     })
-                    alert("Not in kansas")
         
                 }
                 catch(err){
                     console.log(err)
-                    alert("Orca")
                 }}),
 
                 await getStartTime(startButton)
                 timer[startButton] = true
-                alert("Definetely not")
                 newStopWatch()
               }
         }
 
-    async function resetTime(event){
-        event.preventDefault();
+    async function resetTime(button){
+        resetButton = button.currentTarget.parentNode.parentNode.id 
         // alert("This works")
-        timer[ids[i]] = false; 
-        hour_track[ids[i]] = "00"; 
-        minute_track[ids[i]] = "00"; 
-        second_track[ids[i]] = "00"; 
-        count_track[ids[i]] = "00"; 
+        timer[resetButton] = false; 
+        hour_track[resetButton] = "00"; 
+        minute_track[resetButton] = "00"; 
+        second_track[resetButton] = "00"; 
+        count_track[resetButton] = "00"; 
         
-        hour[ids[i]][0].innerHTML = "00";
-        minute[ids[i]][0].innerHTML = "00";
-        second[ids[i]][0].innerHTML = "00";
-        count[ids[i]][0].innerHTML = "00";
+        hour[resetButton][0].innerHTML = "00";
+        minute[resetButton][0].innerHTML = "00";
+        second[resetButton][0].innerHTML = "00";
+        count[resetButton][0].innerHTML = "00";
         
         const response = await fetch('/post/updateTime',{
             method: 'put',
             headers: {'Content-type': 'application/json'},  
             body:JSON.stringify({
-                timerId: resetBtn[i][0].parentNode.parentNode.id,
-                hourUpdate: hour_track[resetBtn[i][0].parentNode.parentNode.id],
-                minuteUpdate: minute_track[resetBtn[i][0].parentNode.parentNode.id],
-                secondUpdate: second_track[resetBtn[i][0].parentNode.parentNode.id],
-                countUpdate: count_track[resetBtn[i][0].parentNode.parentNode.id]
+                timerId: resetButton,
+                hourUpdate: hour_track[resetButton],
+                minuteUpdate: minute_track[resetButton],
+                secondUpdate: second_track[resetButton],
+                countUpdate: count_track[resetButton]
             })
         })
     }
 
-    async function updateTime(event){
-        event.preventDefault();
+    async function updateTime(button){
+        updateButton = button.currentTarget.parentNode.parentNode.id 
         // alert("This works")
         try{
-            timer[stopBtn[i][0].parentNode.parentNode.id] = false; 
+            timer[updateButton] = false; 
             const response = await fetch('/post/updateTime',{
                 method: 'put',
                 headers: {'Content-type': 'application/json'},  
                 body:JSON.stringify({
-                    timerId: stopBtn[i][0].parentNode.parentNode.id,
-                    hourUpdate: hour_track[stopBtn[i][0].parentNode.parentNode.id],
-                    minuteUpdate: minute_track[stopBtn[i][0].parentNode.parentNode.id],
-                    secondUpdate: second_track[stopBtn[i][0].parentNode.parentNode.id],
-                    countUpdate: count_track[stopBtn[i][0].parentNode.parentNode.id]
+                    timerId: updateButton,
+                    hourUpdate: hour_track[updateButton],
+                    minuteUpdate: minute_track[updateButton],
+                    secondUpdate: second_track[updateButton],
+                    countUpdate: count_track[updateButton]
                 })
             })
         }
@@ -323,7 +320,7 @@ async function getStartTime(entry){
 const myWorker = new Worker('worker.js')
 
 function newStopWatch(){
-    alert("We are here in stopwatch")
+    // alert("We are here in stopwatch")
     var next = false;
     myWorker.postMessage({ids: ids, hour_track: hour_track, minute_track:minute_track, second_track: second_track, count_track: count_track, timer: timer, start: start})
     myWorker.onmessage = function(event){
