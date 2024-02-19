@@ -71,11 +71,13 @@ for (let i = 0; i<ids.length; i++){
     stopBtn[i][0].addEventListener('click', updateTime);
     startBtn[i][0].addEventListener('click', startTime);
     resetBtn[i][0].addEventListener('click', resetTime); 
+
     stopBtn[i][0].addEventListener('touchstart', updateTime);
     startBtn[i][0].addEventListener('touchstart', startTime);
     resetBtn[i][0].addEventListener('touchstart', resetTime); 
 
-    async function startTime(){
+    async function startTime(event){
+        event.preventDefault();
         if (oneTimerOn == false){
             if (timer[startBtn[i][0].parentNode.parentNode.id]){
                 // do nothing, if start button already on
@@ -113,7 +115,9 @@ for (let i = 0; i<ids.length; i++){
               }
         }
 
-    async function resetTime(){
+    async function resetTime(event){
+        event.preventDefault();
+        preventDefault();
         timer[ids[i]] = false; 
         hour_track[ids[i]] = "00"; 
         minute_track[ids[i]] = "00"; 
@@ -138,7 +142,8 @@ for (let i = 0; i<ids.length; i++){
         })
     }
 
-    async function updateTime(){
+    async function updateTime(event){
+        event.preventDefault();
         try{
             timer[stopBtn[i][0].parentNode.parentNode.id] = false; 
             const response = await fetch('/post/updateTime',{
