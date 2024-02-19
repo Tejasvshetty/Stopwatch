@@ -89,7 +89,7 @@ for (let i = 0; i<ids.length; i++){
 
     async function startTime(event){
         event.preventDefault();
-        alert("This works")
+        // alert("This works")
         if (oneTimerOn == false){
             if (timer[startBtn[i][0].parentNode.parentNode.id]){
                 // do nothing, if start button already on
@@ -129,7 +129,7 @@ for (let i = 0; i<ids.length; i++){
 
     async function resetTime(event){
         event.preventDefault();
-        alert("This works")
+        // alert("This works")
         timer[ids[i]] = false; 
         hour_track[ids[i]] = "00"; 
         minute_track[ids[i]] = "00"; 
@@ -156,7 +156,7 @@ for (let i = 0; i<ids.length; i++){
 
     async function updateTime(event){
         event.preventDefault();
-        alert("This works")
+        // alert("This works")
         try{
             timer[stopBtn[i][0].parentNode.parentNode.id] = false; 
             const response = await fetch('/post/updateTime',{
@@ -181,7 +181,7 @@ for (let i = 0; i<ids.length; i++){
     async function test(event){
         event.preventDefault();
         try{
-           alert("This works")
+        //    alert("This works")
             }
         
         catch(err){
@@ -318,6 +318,7 @@ async function getStartTime(entry){
 const myWorker = new Worker('worker.js')
 
 function newStopWatch(){
+    alert("We are here in stopwatch")
     var next = false;
     myWorker.postMessage({ids: ids, hour_track: hour_track, minute_track:minute_track, second_track: second_track, count_track: count_track, timer: timer, start: start})
     myWorker.onmessage = function(event){
