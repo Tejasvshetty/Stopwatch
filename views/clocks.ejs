@@ -1,0 +1,93 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-6">
+          <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div>
+          <div class="mt-5">
+            <h2>Add a stopwatch</h2>
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <!-- <div class="mb-3">
+                <label for="caption" class="form-label">Caption</label>
+                <textarea class="form-control" id="caption" name="caption"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div> -->
+              <button type="submit" class="btn btn-primary" value="Upload" id="submit">Submit</button>
+            </form>
+            <button class="btn btn-primary" id="oneTimer" > 
+              <!-- id="reset" -->
+                One Timer On</button>
+          </div>
+      </div>
+      
+      <div class="container">
+        <div class="row justify-content-center">
+          <ul class="row list-unstyled">
+            <% for(var i=0; i<posts.length; i++) {%>
+              <li class="col-6 justify-content-between">
+                <!-- <a href="/post/<%= posts[i]._id%>"> -->
+                  <div class="container clocks" id="<%= posts[i]._id%>"> 
+                    <h1><%= posts[i].title%></h1> 
+                    <div class="time"> 
+                        <span class="digit hr" > 
+                            <!-- id="hr " -->
+                            <%= posts[i].hour%></span> 
+                        <span class="txt">Hr</span> 
+                        <span class="digit min" > 
+                          <!-- id="min" -->
+                          <%= posts[i].minute%></span> 
+                        <span class="txt">Min</span> 
+                        <span class="digit sec" > 
+                          <!-- id="sec" -->
+                          <%= posts[i].second%></span> 
+                        <span class="txt">Sec</span> 
+                        <span class="digit count" > 
+                          <!-- id="count" -->
+                          <%= posts[i].count%></span> 
+                    </div> 
+                    <div class="buttons"> 
+                        <button class="btn start" > 
+                          <!-- id="start" -->
+                            Start</button> 
+                        <button class="btn stop" > 
+                          <!-- id="stop" -->
+                            Stop</button> 
+                        <button class="btn reset" > 
+                          <!-- id="reset" -->
+                            Reset</button> 
+                    </div>
+                    <form
+                      action="/post/deletePost/<%= posts[i].id %>?_method=DELETE"
+                      method="POST"
+                      class="col-3">
+                      <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                    </form>
+                </div> 
+                
+                
+                <!-- </a> -->
+              </li>
+            <% } %>
+            </ul>
+            
+        </div>
+        
+      </div> 
+      
+    </div>
+  </div>
+  <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="main.js"></script> 
+  <script src="worker.js"></script> 
+</div>
+<%- include('partials/footer') -%>

@@ -1,0 +1,186 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #c1c9ee; /* Light Grayish background */
+  color: #333; /* Dark Gray text */
+}
+
+.container {
+  max-width: 1200px; /* Adjusted max-width for a wider container */
+  margin: 0 auto;
+}
+
+header {
+  background-color: #a3d5d3; /* Blueish Pastel Blue */
+  padding: 20px;
+  text-align: center;
+  
+}
+
+h1{
+  color: #f35c63;
+  font-weight: bold;
+}
+li {
+  margin-top: 20px;
+}
+
+header {
+  text-decoration: none;
+  color: #fff;
+}
+
+header span {
+  font-weight: bold;
+  font-size: 1em;
+  color: black;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+span {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+#oneTimer {
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background-color: #f3969a; /* Reddish Pastel Pink */
+  border-color: #f3969a;
+}
+
+.btn-primary:hover {
+  background-color: #e07377; /* Slightly darker on hover */
+  border-color: #e07377;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.clocks {
+  border: 1px solid #ddd; /* Light gray border */
+  background-color: #c7e1e0; /* Blueish Pastel Turquoise */
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; /* Smaller font size */
+  color: #333; /* Dark Gray text */
+}
+
+.digit {
+  display: inline-block;
+  margin: 0 5px; /* Decreased margin for better spacing */
+  font-size: 1.2em; /* Smaller font size */
+  color: #222; /* Dark color for numbers */
+  font-weight: bold;
+}
+
+.clocks h1 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 10px 10px;
+  font-size: 1.5em; /* Smaller font size */
+  color: #222; /* Dark color for numbers */
+  font-weight: bold;
+}
+
+.txt {
+  margin: 0 3px;
+  font-size: 0.8rem; /* Smaller font size */
+  color: #555; /* Slightly lighter Gray text */
+  font-style: italic;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.btn.start,
+.btn.stop,
+.btn.reset {
+  margin-right: 10px;
+}
+
+.fa-trash {
+  color: #fff;
+}
+
+.fa-trash:hover {
+  color: #fff;
+}
+
+/* Optional: Add styles for the form elements if needed */
+.form-label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  .col-6 {
+    width: 100%;
+  }
+
+  .time {
+    font-size: 1.2rem; /* Adjusted font size for smaller screens */
+  }
+
+  .digit {
+    margin: 0 3px; /* Adjusted margin for smaller screens */
+    font-size: 1em; /* Adjusted font size for smaller screens */
+  }
+
+  .txt {
+    font-size: 0.6rem; /* Adjusted font size for smaller screens */
+  }
+}
