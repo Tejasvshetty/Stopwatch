@@ -84,7 +84,9 @@ for (let i = 0; i<ids.length; i++){
     stopBtn[i][0].addEventListener('click', updateTime);
     startBtn[i][0].addEventListener('click', startTime);
     resetBtn[i][0].addEventListener('click', resetTime); 
-
+    alert(stopBtn[i][0])
+    alert(startBtn[i][0])
+    alert(resetBtn[i][0])
     stopBtn[i][0].addEventListener('touchstart', updateTime);
     startBtn[i][0].addEventListener('touchstart', startTime);
     resetBtn[i][0].addEventListener('touchstart', resetTime); 
