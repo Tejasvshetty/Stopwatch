@@ -10,7 +10,6 @@ function getClocks() {
     clocks_prime = document.getElementsByClassName("clocks")
     for (var i=0; i< clocks_prime.length; i++ ) {
         clocks.push(clocks_prime[i].id)
-        alert (clocks_prime[i].id)
     }
     return clocks;
 
@@ -84,9 +83,6 @@ for (let i = 0; i<ids.length; i++){
     stopBtn[i][0].addEventListener('click', updateTime);
     startBtn[i][0].addEventListener('click', startTime);
     resetBtn[i][0].addEventListener('click', resetTime); 
-    alert(stopBtn[i][0])
-    alert(startBtn[i][0])
-    alert(resetBtn[i][0])
     stopBtn[i][0].addEventListener('touchstart', updateTime);
     startBtn[i][0].addEventListener('touchstart', startTime);
     resetBtn[i][0].addEventListener('touchstart', resetTime); 
