@@ -71,9 +71,9 @@ for (let i = 0; i<ids.length; i++){
     stopBtn[i][0].addEventListener('click', updateTime);
     startBtn[i][0].addEventListener('click', startTime);
     resetBtn[i][0].addEventListener('click', resetTime); 
-    stopBtn[i][0].addEventListener('touchend', updateTime);
-    startBtn[i][0].addEventListener('touchend', startTime);
-    resetBtn[i][0].addEventListener('touchend', resetTime); 
+    stopBtn[i][0].addEventListener('touchstart', updateTime);
+    startBtn[i][0].addEventListener('touchstart', startTime);
+    resetBtn[i][0].addEventListener('touchstart', resetTime); 
 
     async function startTime(){
         if (oneTimerOn == false){
