@@ -1,11 +1,24 @@
 function getClocks() {
     let clocks = [];
-   $(document.getElementsByClassName("clocks")).each(function () {
-        if (this.id) {
-            clocks.push(this.id);
-        }
-    });
-    return clocks
+    let clocks_prime = [];
+//    $(document.getElementsByClassName("clocks")).each(function () {
+//         if (this.id) {
+//             clocks.push(this.id);
+//         }
+//     });
+   
+    clocks_prime = document.getElementsByClassName("clocks")
+    for (var i=0; i< clocks_prime.length; i++ ) {
+        clocks.push(clocks_prime[i].id)
+        alert (clocks_prime[i].id)
+    }
+    return clocks;
+
+// }
+
+// var ele = document.getElementsByClassName('translation_box');
+// for (var i=0; i< ele.length; i++ ) {
+//   alert(ele[i].id);
 }
 
 
@@ -117,7 +130,6 @@ for (let i = 0; i<ids.length; i++){
 
     async function resetTime(event){
         event.preventDefault();
-        preventDefault();
         timer[ids[i]] = false; 
         hour_track[ids[i]] = "00"; 
         minute_track[ids[i]] = "00"; 
