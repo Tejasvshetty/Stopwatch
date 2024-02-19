@@ -81,10 +81,10 @@ for (let i = 0; i<ids.length; i++){
 
 for (let i = 0; i<ids.length; i++){
     stopBtn[i][0].addEventListener('click', updateTime);
-    startBtn[i][0].addEventListener('click', startTime);
+    startBtn[i][0].addEventListener('click', test);
     resetBtn[i][0].addEventListener('click', resetTime); 
     stopBtn[i][0].addEventListener('touchstart', updateTime);
-    startBtn[i][0].addEventListener('touchstart', startTime);
+    startBtn[i][0].addEventListener('touchstart', test);
     resetBtn[i][0].addEventListener('touchstart', resetTime); 
 
     async function startTime(event){
@@ -172,6 +172,18 @@ for (let i = 0; i<ids.length; i++){
             console.log(err)
         }
             
+    }
+
+
+    async function test(event){
+        event.preventDefault();
+        try{
+           alert("This works")
+            }
+        
+        catch(err){
+            console.log(err)
+        }
     }
 }
 
