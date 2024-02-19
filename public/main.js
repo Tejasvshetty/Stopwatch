@@ -122,8 +122,10 @@ for (let i = 0; i<ids.length; i++){
                 }
                 catch(err){
                     console.log(err)
+                    alert("Orca")
                 }}),
                 await getStartTime(startBtn[i][0].parentNode.parentNode.id)
+                alert(startBtn[i][0].parentNode.parentNode.id)
                 timer[startBtn[i][0].parentNode.parentNode.id] = true
                 alert("Definetely not")
                 newStopWatch()
